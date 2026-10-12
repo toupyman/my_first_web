@@ -1,0 +1,261 @@
+:root {
+	color-scheme: light;
+	--paper: #f5f6ef;
+	--ink: #202821;
+	--muted: #737c72;
+	--sky: #8ed8f1;
+	--orange: #ff985c;
+	--line: #dce2d8;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+	color: var(--ink);
+	background-color: var(--paper);
+	background-image: radial-gradient(#b8c6b5 0.7px, transparent 0.7px);
+	background-size: 21px 21px;
+	font-family: "Gowun Dodum", sans-serif;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+.page-shell {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	padding: 28px clamp(20px, 6vw, 84px) 22px;
+}
+
+.site-header,
+.site-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.site-header {
+	min-height: 38px;
+}
+
+.wordmark {
+	color: var(--ink);
+	font-family: "Nanum Myeongjo", serif;
+	font-size: 14px;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.wordmark span {
+	color: #ed8550;
+}
+
+.header-note {
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.counter-stage {
+	position: relative;
+	display: flex;
+	width: min(100%, 560px);
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	padding: 68px 0 76px;
+	text-align: center;
+	animation: arrive 650ms ease-out both;
+}
+
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	margin: 0 0 22px;
+	color: #59675a;
+	font-size: 13px;
+}
+
+.status-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #e88c57;
+	box-shadow: 0 0 0 4px #e88c5726;
+}
+
+h1 {
+	margin: 0;
+	font-family: "Nanum Myeongjo", serif;
+	font-size: clamp(46px, 8vw, 72px);
+	font-weight: 800;
+	line-height: 1.17;
+}
+
+h1 span {
+	color: #397c79;
+}
+
+.description {
+	margin: 18px 0 0;
+	color: var(--muted);
+	font-size: 15px;
+}
+
+.counter-display {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 35px 0 21px;
+}
+
+.counter-label {
+	color: #788479;
+	font-family: sans-serif;
+	font-size: 10px;
+	font-weight: 700;
+}
+
+.counter-value {
+	min-width: 2ch;
+	color: var(--ink);
+	font-family: "Nanum Myeongjo", serif;
+	font-size: 60px;
+	font-weight: 700;
+	line-height: 1.2;
+	font-variant-numeric: tabular-nums;
+}
+
+.click-button {
+	display: inline-flex;
+	min-width: 184px;
+	min-height: 62px;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	border: 2px solid var(--ink);
+	border-radius: 7px;
+	background: var(--sky);
+	box-shadow: 4px 4px 0 var(--ink);
+	color: var(--ink);
+	cursor: pointer;
+	font: 700 17px "Gowun Dodum", sans-serif;
+	transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.click-button:hover {
+	transform: translate(-2px, -2px);
+	box-shadow: 6px 6px 0 var(--ink);
+}
+
+.click-button:active {
+	transform: translate(3px, 3px);
+	box-shadow: 1px 1px 0 var(--ink);
+}
+
+.click-button:focus-visible {
+	outline: 3px solid #397c79;
+	outline-offset: 5px;
+}
+
+.click-button.is-counted {
+	background: var(--orange);
+}
+
+.button-icon {
+	font-size: 22px;
+	line-height: 1;
+}
+
+.button-caption {
+	min-height: 20px;
+	margin: 15px 0 0;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.spark {
+	position: absolute;
+	color: #e88c57;
+	font-size: 28px;
+}
+
+.spark-left {
+	top: 29%;
+	left: 8%;
+	transform: rotate(-14deg);
+}
+
+.spark-right {
+	right: 7%;
+	bottom: 29%;
+	color: #397c79;
+	font-size: 21px;
+	transform: rotate(12deg);
+}
+
+.site-footer {
+	min-height: 38px;
+	border-top: 1px solid var(--line);
+	color: #768075;
+	font-family: sans-serif;
+	font-size: 9px;
+	letter-spacing: 0.08em;
+}
+
+.footer-mark {
+	color: #e88c57;
+	font-size: 13px;
+}
+
+@keyframes arrive {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 480px) {
+	.page-shell {
+		padding: 20px 22px 16px;
+	}
+
+	.counter-stage {
+		padding: 54px 0 62px;
+	}
+
+	.description {
+		font-size: 14px;
+	}
+
+	.spark-left {
+		left: 0;
+	}
+
+	.spark-right {
+		right: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}

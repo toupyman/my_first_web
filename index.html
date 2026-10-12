@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f5f6ef">
+	<title>똥순이의 웹사이트</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<main class="page-shell">
+		<header class="site-header">
+			<a class="wordmark" href="#home" aria-label="똥순이의 웹사이트 홈">DDOONSOONI <span>°</span></a>
+			<span class="header-note">작은 즐거움 모으기</span>
+		</header>
+
+		<section class="counter-stage" id="home" aria-labelledby="page-title">
+			<div class="spark spark-left" aria-hidden="true">✳</div>
+			<div class="spark spark-right" aria-hidden="true">✳</div>
+			<p class="eyebrow"><span class="status-dot"></span> 오늘의 기분 좋은 클릭</p>
+			<h1 id="page-title">똥순이의<br><span>웹사이트</span></h1>
+			<p class="description">버튼을 누르고 오늘의 숫자를 채워봐!</p>
+
+			<div class="counter-display" aria-live="polite" aria-atomic="true">
+				<span class="counter-label">CLICK COUNT</span>
+				<output id="counter" class="counter-value">0</output>
+			</div>
+
+			<button class="click-button" id="click-button" type="button">
+				<span class="button-icon" aria-hidden="true">＋</span>
+				<span>눌러봐!</span>
+			</button>
+			<p class="button-caption" id="button-caption">한 번 눌러서 시작하기</p>
+		</section>
+
+		<footer class="site-footer">
+			<span>MADE WITH A LITTLE JOY</span>
+			<span class="footer-mark" aria-hidden="true">♥</span>
+			<span>© DDOONSOONI</span>
+		</footer>
+	</main>
+</body>
+</html>
