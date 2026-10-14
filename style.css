@@ -3,7 +3,7 @@
 	--paper: #f5f6ef;
 	--ink: #202821;
 	--muted: #737c72;
-	--sky: #8ed8f1;
+	--sky: #a5f18e;
 	--orange: #ff985c;
 	--line: #dce2d8;
 }
@@ -31,8 +31,70 @@ a {
 .page-shell {
 	display: flex;
 	min-height: 100vh;
-	flex-direction: column;
+	gap: clamp(24px, 5vw, 68px);
 	padding: 28px clamp(20px, 6vw, 84px) 22px;
+}
+
+.side-menu {
+	display: flex;
+	width: 58px;
+	flex: 0 0 58px;
+	flex-direction: column;
+	align-items: center;
+	border-right: 1px solid var(--line);
+}
+
+.menu-caption {
+	margin: 12px 0 28px;
+	color: var(--muted);
+	font-family: sans-serif;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	writing-mode: vertical-rl;
+}
+
+.menu-list {
+	display: flex;
+	flex-direction: column;
+	gap: 13px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.menu-item {
+	display: grid;
+	width: 34px;
+	height: 34px;
+	place-items: center;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	color: var(--muted);
+	font-family: "Nanum Gothic", sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+}
+
+.menu-item.is-active {
+	border-color: var(--ink);
+	background: var(--sky);
+	color: var(--ink);
+}
+
+.menu-decoration {
+	margin-top: auto;
+	padding-bottom: 9px;
+	color: #e88c57;
+	font-size: 17px;
+}
+
+.site-content {
+	display: flex;
+	min-width: 0;
+	flex: 1;
+	flex-direction: column;
 }
 
 .site-header,
@@ -48,7 +110,7 @@ a {
 
 .wordmark {
 	color: var(--ink);
-	font-family: "Nanum Myeongjo", serif;
+	font-family: "Nanum Gothic", sans-serif;
 	font-size: 14px;
 	font-weight: 800;
 	text-decoration: none;
@@ -63,7 +125,7 @@ a {
 	font-size: 12px;
 }
 
-.counter-stage {
+.page-stage {
 	position: relative;
 	display: flex;
 	width: min(100%, 560px);
@@ -96,7 +158,7 @@ a {
 
 h1 {
 	margin: 0;
-	font-family: "Nanum Myeongjo", serif;
+	font-family: "Nanum Gothic", sans-serif;
 	font-size: clamp(46px, 8vw, 72px);
 	font-weight: 800;
 	line-height: 1.17;
@@ -112,76 +174,33 @@ h1 span {
 	font-size: 15px;
 }
 
-.counter-display {
+.datetime-display {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 35px 0 21px;
+	gap: 8px;
+	margin-top: 35px;
+	padding: 18px 28px 20px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	background: #ffffffa8;
+	box-shadow: 4px 4px 0 #20282112;
 }
 
-.counter-label {
+.datetime-label {
 	color: #788479;
 	font-family: sans-serif;
-	font-size: 10px;
+	font-size: 11px;
 	font-weight: 700;
 }
 
-.counter-value {
-	min-width: 2ch;
+.datetime-value {
 	color: var(--ink);
-	font-family: "Nanum Myeongjo", serif;
-	font-size: 60px;
+	font-family: "Nanum Gothic", sans-serif;
+	font-size: clamp(19px, 4vw, 28px);
 	font-weight: 700;
 	line-height: 1.2;
 	font-variant-numeric: tabular-nums;
-}
-
-.click-button {
-	display: inline-flex;
-	min-width: 184px;
-	min-height: 62px;
-	align-items: center;
-	justify-content: center;
-	gap: 9px;
-	border: 2px solid var(--ink);
-	border-radius: 7px;
-	background: var(--sky);
-	box-shadow: 4px 4px 0 var(--ink);
-	color: var(--ink);
-	cursor: pointer;
-	font: 700 17px "Gowun Dodum", sans-serif;
-	transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.click-button:hover {
-	transform: translate(-2px, -2px);
-	box-shadow: 6px 6px 0 var(--ink);
-}
-
-.click-button:active {
-	transform: translate(3px, 3px);
-	box-shadow: 1px 1px 0 var(--ink);
-}
-
-.click-button:focus-visible {
-	outline: 3px solid #397c79;
-	outline-offset: 5px;
-}
-
-.click-button.is-counted {
-	background: var(--orange);
-}
-
-.button-icon {
-	font-size: 22px;
-	line-height: 1;
-}
-
-.button-caption {
-	min-height: 20px;
-	margin: 15px 0 0;
-	color: var(--muted);
-	font-size: 12px;
 }
 
 .spark {
@@ -231,10 +250,26 @@ h1 span {
 
 @media (max-width: 480px) {
 	.page-shell {
+		gap: 16px;
 		padding: 20px 22px 16px;
 	}
 
-	.counter-stage {
+	.side-menu {
+		width: 40px;
+		flex-basis: 40px;
+	}
+
+	.menu-item {
+		width: 30px;
+		height: 30px;
+		font-size: 10px;
+	}
+
+	.menu-list {
+		gap: 10px;
+	}
+
+	.page-stage {
 		padding: 54px 0 62px;
 	}
 
@@ -248,6 +283,16 @@ h1 span {
 
 	.spark-right {
 		right: 0;
+	}
+
+	.datetime-display {
+		max-width: 100%;
+		padding-right: 14px;
+		padding-left: 14px;
+	}
+
+	.datetime-value {
+		font-size: clamp(16px, 4.2vw, 20px);
 	}
 }
 

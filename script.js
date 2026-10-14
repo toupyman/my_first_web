@@ -1,12 +1,15 @@
-const counter = document.querySelector("#counter");
-const clickButton = document.querySelector("#click-button");
-const buttonCaption = document.querySelector("#button-caption");
-
-let clickCount = 0;
-
-clickButton.addEventListener("click", () => {
-	clickCount += 1;
-	counter.textContent = clickCount;
-	clickButton.classList.add("is-counted");
-	buttonCaption.textContent = "좋아! 한 번 더 눌러봐";
+const dateTimeDisplay = document.querySelector("#current-datetime");
+const koreanDateTime = new Intl.DateTimeFormat("ko-KR", {
+	dateStyle: "long",
+	timeStyle: "medium",
+	hourCycle: "h23",
 });
+
+function updateDateTime() {
+	const now = new Date();
+	dateTimeDisplay.dateTime = now.toISOString();
+	dateTimeDisplay.textContent = koreanDateTime.format(now);
+}
+
+updateDateTime();
+window.setInterval(updateDateTime, 1000);
